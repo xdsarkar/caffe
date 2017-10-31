@@ -24,7 +24,7 @@ Happy brewing!
 
 ## License and Citation
 
-Caffe is released under the [BSD 2-Clause license](https://github.com/BVLC/caffe/blob/master/LICENSE).
+**Caffe** is released under the [BSD 2-Clause license](https://github.com/BVLC/caffe/blob/master/LICENSE).
 The BVLC reference models are released for unrestricted use.
 
 Please cite Caffe in your publications if it helps your research:
