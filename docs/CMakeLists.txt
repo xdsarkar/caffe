@@ -69,7 +69,7 @@ file(REMOVE_RECURSE ${PROJECT_SOURCE_DIR}/docs/gathered)
 # Doxygen config file path
 set(DOXYGEN_config_file ${PROJECT_SOURCE_DIR}/.Doxyfile CACHE FILEPATH "Doxygen config file")
 
-# Adding docs target
+# Adding docs to the target
 add_custom_target(docs COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYGEN_config_file}
                        WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
                        COMMENT "Launching doxygen..." VERBATIM)
@@ -78,7 +78,7 @@ add_custom_target(docs COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYGEN_config_file}
 gather_notebooks_as_prebuild_cmd(docs docs/gathered ${PROJECT_SOURCE_DIR})
 gather_readmes_as_prebuild_cmd(docs docs/gathered  ${PROJECT_SOURCE_DIR})
 
-# Auto detect output directory
+# Auto detect the output directory
 file(STRINGS ${DOXYGEN_config_file} config_line REGEX "OUTPUT_DIRECTORY[ \t]+=[^=].*")
 if(config_line)
   string(REGEX MATCH "OUTPUT_DIRECTORY[ \t]+=([^=].*)" __ver_check "${config_line}")
@@ -94,7 +94,7 @@ if(NOT IS_ABSOLUTE ${output_dir})
   get_filename_component(output_dir ${output_dir} ABSOLUTE)
 endif()
 
-# creates symlink in docs subfolder to code documentation built by doxygen
+# creates a symlink in docs subfolder to code documentation built by doxygen
 add_custom_command(TARGET docs POST_BUILD VERBATIM
                    COMMAND ln -sfn "${output_dir}/html" doxygen
                    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/docs
