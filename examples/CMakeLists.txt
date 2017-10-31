@@ -18,7 +18,7 @@ foreach(source_file ${examples_srcs})
 
   caffe_set_solution_folder(${name} examples)
 
-  # install
+  # installation instructions
   install(TARGETS ${name} DESTINATION bin)
 
   if(UNIX OR APPLE)
